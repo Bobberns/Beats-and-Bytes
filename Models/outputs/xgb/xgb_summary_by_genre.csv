@@ -1,0 +1,3 @@
+genre,avg_rmse_walkforward,std_rmse_walkforward,avg_mae_walkforward,std_mae_walkforward,avg_r2_walkforward,std_r2_walkforward,folds,final_params,meets_thresholds_walkforward
+latin,3.8185,,3.8103,,-232.2927,,1,"{'max_depth': np.int64(3), 'learning_rate': np.float64(0.03), 'n_estimators': np.int64(200), 'subsample': np.float64(0.7), 'colsample_bytree': np.float64(0.7), 'reg_lambda': np.float64(2.0), 'reg_alpha': np.float64(0.5)}",False
+pop,0.3754,,0.3746,,-1.2551,,1,"{'max_depth': np.int64(3), 'learning_rate': np.float64(0.1), 'n_estimators': np.int64(300), 'subsample': np.float64(0.9), 'colsample_bytree': np.float64(0.7), 'reg_lambda': np.float64(0.0), 'reg_alpha': np.float64(0.5)}",False

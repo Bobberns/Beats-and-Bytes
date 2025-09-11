@@ -1,0 +1,2 @@
+genre,fold,train_start,train_end,test_start,test_end,rmse,mae,r2,colsample_bytree,learning_rate,max_depth,n_estimators,reg_alpha,reg_lambda,subsample
+latin,1,2019,2021,2022,2023,3.8184801487773976,3.8102874755859375,-232.2926503457129,0.7,0.03,3,200,0.5,2.0,0.7

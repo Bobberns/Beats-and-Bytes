@@ -1,0 +1,3 @@
+genre,fold,train_start,train_end,test_start,test_end,rmse,mae,r2,source,max_depth,learning_rate,n_estimators,subsample,colsample_bytree,reg_lambda,reg_alpha
+pop,1,2008,2010,2011,2012,1.0058023099776374,0.718292236328125,-15.186212588101625,manual,4,0.08,300,0.9,0.9,1.0,0.0
+pop,1,2008,2010,2011,2012,0.3754219454194367,0.3745880126953125,-1.255066193640232,grid,3,0.1,300,0.9,0.7,0.0,0.5

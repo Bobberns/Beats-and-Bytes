@@ -1,0 +1,10 @@
+feature,importance,fold,genre
+median_energy,0.6759797,1,pop
+median_tempo,0.0016314037,1,pop
+median_danceability,0.2655895,1,pop
+median_loudness,6.561903e-07,1,pop
+median_liveness,0.0,1,pop
+median_valence,5.567992e-07,1,pop
+median_speechiness,0.050636582,1,pop
+median_instrumentalness,0.006161686,1,pop
+median_acousticness,0.0,1,pop

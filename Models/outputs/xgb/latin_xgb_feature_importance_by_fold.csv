@@ -1,0 +1,10 @@
+feature,importance,fold,genre
+median_energy,0.17257306,1,latin
+median_tempo,0.14438628,1,latin
+median_danceability,0.20539954,1,latin
+median_loudness,0.17745306,1,latin
+median_liveness,0.0,1,latin
+median_valence,0.30018806,1,latin
+median_speechiness,0.0,1,latin
+median_instrumentalness,0.0,1,latin
+median_acousticness,0.0,1,latin
