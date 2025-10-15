@@ -1,0 +1,10 @@
+feature,importance
+loudness,0.15251091
+speechiness,0.1496889
+liveness,0.12290461
+valence,0.12076276
+tempo,0.1126308
+acousticness,0.11207242
+instrumentalness,0.09257019
+danceability,0.08878795
+energy,0.048071403
