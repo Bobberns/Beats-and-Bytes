@@ -28,7 +28,7 @@ RANDOM_STATE = 42
 MIN_SAMPLES_PER_SPLIT = 20  # Minimum samples required for train/test splits
 
 # Thesis thresholds for model evaluation
-THRESH_RMSE, THRESH_MAE, THRESH_R2 = 8.0, 6.0, 0.70
+THRESH_RMSE, THRESH_MAE, THRESH_R2 = 8.0, 5.0, 0.70
 
 FOCUS_GENRES = ["pop", "hip-hop", "latin", "electronic"]
 
@@ -67,15 +67,13 @@ MANUAL_PARAMS = {
     }
 }
 
-# Grid for hyperparameter tuning (reduced for efficiency)
+# Grid for hyperparameter tuning (108 combinations)
 GRID = {
     "max_depth": [4, 6, 8],
     "learning_rate": [0.05, 0.1, 0.2],
     "n_estimators": [50, 100, 200],
     "subsample": [0.8, 1.0],
     "colsample_bytree": [0.8, 1.0],
-    "reg_lambda": [0.0, 1.0],
-    "reg_alpha": [0.0, 0.1]
 }
 
 def evaluate_model(y_true, y_pred):
@@ -111,9 +109,11 @@ def train_xgboost_model(X_train, y_train, params):
     Returns:
     XGBRegressor: Trained model
     """
+    full_params = {"reg_lambda": 1.0, "reg_alpha": 0.0}
+    full_params.update(params)
     model = XGBRegressor(
         random_state=RANDOM_STATE,
-        **params
+        **full_params
     )
     model.fit(X_train, y_train)
     return model
@@ -144,7 +144,7 @@ def time_aware_split(df, test_size=0.2, validation_size=0.1):
 
     return train_df, val_df, test_df
 
-def hyperparameter_tuning(X_train, y_train, X_val, y_val, grid, max_evals=50):
+def hyperparameter_tuning(X_train, y_train, X_val, y_val, grid):
     """
     Perform hyperparameter tuning using validation set.
 
@@ -152,7 +152,6 @@ def hyperparameter_tuning(X_train, y_train, X_val, y_val, grid, max_evals=50):
     X_train, y_train: Training data
     X_val, y_val: Validation data
     grid (dict): Parameter grid for tuning
-    max_evals (int): Maximum evaluations to prevent overly long searches
 
     Returns:
     dict: Best parameters
@@ -161,8 +160,6 @@ def hyperparameter_tuning(X_train, y_train, X_val, y_val, grid, max_evals=50):
     best_rmse = float('inf')
 
     param_combinations = list(ParameterGrid(grid))
-    # Limit evaluations for efficiency
-    param_combinations = param_combinations[:max_evals]
 
     print(f"    Evaluating {len(param_combinations)} parameter combinations...")
 
