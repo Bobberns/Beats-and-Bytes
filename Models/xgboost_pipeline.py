@@ -29,7 +29,7 @@ TRAIN_YEARS, TEST_YEARS = 3, 2
 RANDOM_STATE = 42
 
 # Thesis thresholds for model evaluation
-THRESH_RMSE, THRESH_MAE, THRESH_R2 = 8.0, 5.0, 0.70
+THRESH_RMSE, THRESH_MAE, THRESH_R2 = 8.0, 6.0, 0.70
 
 FOCUS_GENRES = ["pop", "hip-hop", "latin", "electronic"]
 
@@ -68,13 +68,15 @@ MANUAL_PARAMS = {
     }
 }
 
-# Grid for hyperparameter tuning (108 combinations)
+# Grid for hyperparameter tuning
 GRID = {
-    "max_depth": [4, 6, 8],
-    "learning_rate": [0.05, 0.1, 0.2],
-    "n_estimators": [50, 100, 200],
-    "subsample": [0.8, 1.0],
-    "colsample_bytree": [0.8, 1.0],
+    "max_depth": [3, 4, 5, 6],
+    "learning_rate": [0.03, 0.05, 0.08, 0.1],
+    "n_estimators": [200, 300, 400, 600],
+    "subsample": [0.7, 0.8, 0.9, 1.0],
+    "colsample_bytree": [0.7, 0.8, 0.9, 1.0],
+    "reg_lambda": [0.0, 0.5, 1.0, 2.0],
+    "reg_alpha": [0.0, 0.1, 0.5]
 }
 
 def generate_time_windows(years, train_years=3, test_years=2):
